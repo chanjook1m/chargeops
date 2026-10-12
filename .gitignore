@@ -1,0 +1,6 @@
+config/.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+k8s/rendered.yaml
