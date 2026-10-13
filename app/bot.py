@@ -1,4 +1,4 @@
-# CI/CD Image Updater E2E test
+# CI/CD Image Updater E2E test2
 """Socket Mode가 Slack 버튼 이벤트를 수신하고 CSMS로 조회/승인 전달."""
 import logging
 import os
