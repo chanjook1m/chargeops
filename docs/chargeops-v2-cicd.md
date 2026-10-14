@@ -74,4 +74,13 @@ Pod가 교체되면 기존 port-forward가 끊길 수 있으므로 새로 실행
 
 패키지 고정 버전은 PyPI에서 존재 여부를 확인했습니다. Docker 빌드, Jenkins 실행,
 Docker Hub Push, 클러스터 배포, DB/Ollama/Slack 기능은 로컬 적용 단계에서 실행하지 않았습니다.
-실제 Secret은 저장소에 추가하지 않았으며, 커밋과 Push도 아직 수행하지 않았습니다.
+실제 Secret은 저장소에 추가하지 않았습니다. 초기 적용 커밋 `fc93416`은 main에 Push했습니다.
+로컬 Windows Python 3.13.15에서 기존 테스트 2개가 통과했고, ai-gateway의 `/healthz`와
+`/cicd-healthz`는 HTTP 200 및 marker v1을 반환했습니다. 실제 Jenkins·클러스터 검증은 연결 후 수행해야 합니다.
+
+## 이전 수동 배포 파일 정리
+
+현재 Jenkins는 모든 이미지에 서비스별 Dockerfile을 명시합니다. 중복된 루트 Dockerfile과
+이전 수동 배포용 `k8s/` 디렉터리, 해당 디렉터리에만 의존하는 `scripts/render_manifest.py`를 제거했습니다.
+배포 매니페스트는 별도 infra-test 저장소의 Kustomize 경로에서 관리합니다.
+기존 서비스의 Secret/ConfigMap 준비용 `scripts/setup_k8s.py`는 유지합니다.
