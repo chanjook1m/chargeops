@@ -6,3 +6,5 @@ config/.env
 .venv
 k8s/rendered.yaml
 *.pyc
+
+.ci-venv

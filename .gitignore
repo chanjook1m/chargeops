@@ -4,3 +4,9 @@ __pycache__/
 .pytest_cache/
 *.pyc
 k8s/rendered.yaml
+
+.ci-venv/
+.env
+.env.*
+!.env.example
+*.secrets.env
